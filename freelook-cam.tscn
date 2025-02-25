@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://ydce1mhd34yk" path="res://addons/freelook-cam/freelook-cam.gd" id="1_mfdnd"]
 
 [node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 script = ExtResource("1_mfdnd")
