@@ -44,9 +44,9 @@ func _input(event: InputEvent):
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				translate_speed *= 0.95
-			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				translate_speed /= 0.95
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				translate_speed *= 0.95
 
 			translate_speed = clamp(translate_speed, 0.1, 10.0)
 
