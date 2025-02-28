@@ -2,17 +2,18 @@ extends Camera3D
 
 var is_active := true
 @export var translate_speed: float = 3.0
+@export var enabled: bool = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
 func _process(delta: float) -> void:
-	if not is_active: return
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		is_active = false
+
+	if not is_active or not enabled: return
 
 	var input_vector := Vector3()
 	if Input.is_key_pressed(KEY_W):
@@ -38,8 +39,7 @@ func _input(event: InputEvent):
 		if event is InputEventMouseButton:
 			is_active = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			return
+		return
 
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
